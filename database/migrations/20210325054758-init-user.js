@@ -10,8 +10,6 @@ module.exports = {
       age: INTEGER,
       created_at: DATE,
       updated_at: DATE,
-      createdAt: DATE,
-      updatedAt: DATE,
     });
   },
   // 在执行数据库降级时调用的函数，删除 user 表

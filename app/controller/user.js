@@ -16,7 +16,13 @@ class UserController extends Controller {
 
   async show() {
     const ctx = this.ctx;
-    ctx.body = await ctx.model.User.findByPk(toInt(ctx.params.id));
+    if (await ctx.model.User.findByPk(toInt(ctx.params.id)) === null) {
+      ctx.body = {
+        message: '暂未找到该人员',
+      };
+    } else {
+      ctx.body = await ctx.model.User.findByPk(toInt(ctx.params.id));
+    }
   }
 
   async create() {
