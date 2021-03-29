@@ -8,6 +8,7 @@ module.exports = {
       id: { type: INTEGER, primaryKey: true, autoIncrement: true },
       name: STRING(30),
       age: INTEGER,
+      gender: STRING(10),
       created_at: DATE,
       updated_at: DATE,
     });

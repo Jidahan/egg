@@ -42,11 +42,11 @@ module.exports = appInfo => {
   const userConfig = {
     sequelize: {
       dialect: 'mysql',
-      host: '127.0.0.1',
+      host: '47.93.233.47',
       port: 3306,
       database: 'egg',
-      username: 'root',
-      password: 'example',
+      username: 'jihan',
+      password: 'jh0427..',
       define: {
         freezeTableName: true, // 强制表名称等于模型名称
         timestamps: false, // 禁用时间戳
