@@ -7,9 +7,9 @@
  */
 module.exports = appInfo => {
   /**
-   * built-in config
-   * @type {Egg.EggAppConfig}
-   **/
+     * built-in config
+     * @type {Egg.EggAppConfig}
+     **/
   const config = exports = {};
 
   // use for cookie sign key, should change to your own and keep security
@@ -32,36 +32,48 @@ module.exports = appInfo => {
 
   // };
 
-  // config.security = {
-  //   csrf: {
-  //     headerName: 'token', // 自定义请求头
-  //   },
-  // };
+  config.security = {
+    csrf: {
+      enable: false,
+      ignoreJSON: true,
+    },
+    domainWhiteList: [ 'http://localhost:8080' ],
+  };
+
+  config.cors = {
+    origin: '*',
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
+  };
+
+  config.jwt = {
+    secret: 'ylw', // 自定义 token 的加密条件字符串
+  };
 
   // add your user config here
   const userConfig = {
     sequelize: {
       dialect: 'mysql',
-      host: '47.93.233.47',
+      host: '127.0.0.1',
       port: 3306,
       database: 'egg',
-      username: 'jihan',
-      password: 'jh0427..',
+      username: 'root',
+      password: 'example',
+      timezone: '+08:00',
       define: {
         freezeTableName: true, // 强制表名称等于模型名称
         timestamps: false, // 禁用时间戳
       },
 
     },
-    security: {
-      csrf: {
-        headerName: 'token', // 自定义请求头
-      },
-    },
-    cors: {
-      origin: '*',
-      allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
-    },
+    // security: {
+    //   csrf: {
+    //     headerName: 'Authorization', // 自定义请求头
+    //   },
+    //   // csrf: {
+    //   //   enable: false,
+    //   // },
+    // },
+
   };
 
   return {

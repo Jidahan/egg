@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "jihan",
-    "password": "jh0427..",
+    "username": "root",
+    "password": "example",
     "database": "egg",
-    "host": "47.93.233.47",
+    "host": "db",
     "dialect": "mysql",
     "dialectOptions": {
       "dateStrings": true,

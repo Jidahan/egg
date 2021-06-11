@@ -1,0 +1,13 @@
+{
+    "git.ignoreLimitWarning": true,
+    "workbench.colorCustomizations": {
+        "editorGroup.border": "#57fc2e",
+        "panel.border": "#57fc2e",
+        "sideBar.border": "#57fc2e",
+        "statusBar.background": "#0442f3",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#57fc2e",
+        "tab.activeBorder": "#57fc2e"
+    },
+    "peacock.color": "#0442f3"
+}

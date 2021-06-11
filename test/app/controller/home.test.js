@@ -1,20 +1,27 @@
 'use strict';
 
-const { app, assert } = require('egg-mock/bootstrap');
+const { app, mock, assert } = require('egg-mock/bootstrap');
 
-describe('test/app/controller/home.test.js', () => {
-  it('should assert', () => {
-    const pkg = require('../../../package.json');
-    assert(app.config.keys.startsWith(pkg.name));
-
-    // const ctx = app.mockContext({});
-    // yield ctx.service.xx();
+describe('test/controller/home.test.js', () => {
+  describe('GET /', () => {
+    it('should status callback 200', () => {
+      return app.httpRequest()
+        .get('/')
+        .expect(200)
+        .expect('hi, egg');
+    });
   });
 
-  it('should GET /', () => {
-    return app.httpRequest()
+  it('should get body and status 200', async () => {
+    await app.httpRequest()
       .get('/')
-      .expect('hi, egg')
-      .expect(200);
+      .expect(200)
+      .expect('hi, egg');
+
+    const result = await app.httpRequest()
+      .get('/')
+      .expect(200)
+      .expect('hi, egg');
+    assert(result.status === 200);
   });
 });

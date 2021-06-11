@@ -11,7 +11,10 @@ function toInt(str) {
 class UserController extends Controller {
   async index() {
     const ctx = this.ctx;
-    ctx.body = await ctx.model.User.findAll();
+    ctx.body = {
+      code: 1000,
+      data: await ctx.model.User.findAll(),
+    };
   }
 
   async show() {
@@ -27,8 +30,8 @@ class UserController extends Controller {
 
   async create() {
     const ctx = this.ctx;
-    const { name, age, gender } = ctx.request.body;
-    const user = await ctx.model.User.create({ name, age, gender });
+    const { name, age, gender, phone } = ctx.request.body;
+    const user = await ctx.model.User.create({ name, age, gender, phone });
     ctx.status = 201;
     ctx.body = user;
   }
@@ -39,6 +42,9 @@ class UserController extends Controller {
     const user = await ctx.model.User.findByPk(id);
     if (!user) {
       ctx.status = 404;
+      ctx.body = {
+        message: '暂未找到该人员',
+      };
       return;
     }
 
